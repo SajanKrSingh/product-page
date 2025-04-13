@@ -3,6 +3,20 @@ import Footer from "@/app/components/Footer";
 import Sidebar from "@/app/components/Sidebar";
 import ProductCard from "@/app/components/ProductGrid";
 
+//Define the Product type
+type Product = {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  category: string;
+  image: string;
+  rating: {
+    rate: number;
+    count: number;
+  };
+};
+
 export default async function Home({
   searchParams,
 }: {
@@ -14,7 +28,7 @@ export default async function Home({
     : "https://fakestoreapi.com/products";
 
   const res = await fetch(url, { cache: "no-store" });
-  const products = await res.json();
+  const products: Product[] = await res.json();
 
   return (
     <div className="font-roboto">
@@ -50,8 +64,7 @@ export default async function Home({
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 border border-gray-200">
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              {products.map((product: unknown) => (
+              {products.map((product: Product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
             </div>
