@@ -51,7 +51,7 @@ export default async function Home({
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 border border-gray-200">
               // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              {products.map((product: any) => (
+              {products.map((product: unknown) => (
                 <ProductCard key={product.id} product={product} />
               ))}
             </div>
