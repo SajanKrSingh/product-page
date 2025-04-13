@@ -13,7 +13,13 @@ const Header = () => {
       <div className="container mx-auto flex justify-between items-center py-4 px-4 md:px-8 lg:px-16">
         {/* Logo + Nav */}
         <div className="flex items-center space-x-6">
-          <img src="/image.png" alt="Logo" className="w-10 h-10" />
+          <Image
+            src="/image.png"
+            alt="Logo"
+            width={40}
+            height={40}
+            className="w-10 h-10"
+          />
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex space-x-6">
